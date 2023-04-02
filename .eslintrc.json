@@ -1,0 +1,222 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "sourceType": "module",
+        "allowImportExportEverywhere": true
+    },
+    "extends": [
+        "airbnb",
+        "prettier"
+    ],
+    "env": {
+        "browser": true,
+        "jest": true,
+        "node": true
+    },
+    "settings": {
+        "react": {
+            "version": "16.13.1"
+        },
+        "polyfills": [
+            "Promise"
+        ]
+    },
+    "rules": {
+        // Builtin rules
+        "arrow-body-style": "off",
+        "arrow-parens": "off",
+        "compat/compat": "error",
+        "consistent-return": "off",
+        "comma-dangle": [
+            "error",
+            {
+                "arrays": "never",
+                "objects": "never",
+                "imports": "never",
+                "exports": "never",
+                "functions": "never"
+            }
+        ],
+        "class-methods-use-this": "off",
+        "eol-last": ["error", "always"],
+        "default-case": "off",
+        "generator-star-spacing": "off",
+        "lines-between-class-members": "off",
+        "object-curly-spacing": [
+            "error",
+            "always"
+        ],
+        "max-len": ["warn", {
+            "code": 121,
+            "ignorePattern": "^import .* from '.*'"
+        }],
+        "no-console": "warn",
+        "no-extra-boolean-cast": "off",
+        "no-use-before-define": "off",
+        "no-useless-return": "off",
+        "no-multi-assign": "off",
+        "no-multiple-empty-lines": "error",
+        "no-param-reassign": "off",
+        "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+        "no-restricted-syntax": "off",
+        "no-trailing-spaces": "error",
+        "no-underscore-dangle":  [
+            0,
+            {
+                "allow": [
+                    "__place"
+                ]
+            }
+        ],
+        "no-unused-vars": "off",
+        "no-shadow": "off",
+        "prefer-destructuring": ["error", {
+            "VariableDeclarator": {
+                "array": true,
+                "object": true
+            },
+            "AssignmentExpression": {
+                "array": false,
+                "object": true
+            }
+        }],
+        "keyword-spacing": [
+            "error",
+            {
+                "before": true,
+                "after": true
+            }
+        ],
+        "quotes": [
+            "error",
+            "single",
+            {
+                "allowTemplateLiterals": true
+            }
+        ],
+        "semi": "error",
+        "sort-keys": "off",
+        "space-before-blocks": "error",
+
+        // Import rules
+        "import/extensions": "off",
+        "import/no-unresolved": "off",
+        "import/no-extraneous-dependencies": "off",
+        "import/order": [
+            "error",
+            {
+                "groups": [
+                    "builtin", "external", "internal", "parent", "sibling"
+                ],
+                "pathGroups": [
+                    {
+                        "pattern": "react",
+                        "group": "external",
+                        "position": "before"
+                    },
+                    {
+                        "pattern": "{.,..}/**/*.scss",
+                        "group": "unknown",
+                        "position": "after"
+                    }
+                ],
+                "pathGroupsExcludedImportTypes": ["react"],
+                "newlines-between": "always-and-inside-groups",
+                "alphabetize": {
+                    "order": "asc",
+                    "caseInsensitive": true
+                }
+            }
+        ],
+
+        // JSX rules
+        "jsx-quotes": ["error", "prefer-single"],
+        "jsx-a11y/anchor-is-valid": "off",
+        // TODO: remove after refactor
+        "jsx-a11y/click-events-have-key-events": "off",
+        // TODO: remove after refactor
+        "jsx-a11y/interactive-supports-focus": "off",
+        "jsx-a11y/label-has-for": [
+            2,
+            {
+                "required": {
+                    "every": [
+                        "id"
+                    ]
+                }
+            }
+        ],
+        // TODO: remove after TypeScript update to version >4
+        "react/jsx-fragments": "off",
+
+        // Promise rules
+        "promise/param-names": "error",
+        "promise/always-return": "error",
+        "promise/catch-or-return": "error",
+        "promise/no-native": "off",
+
+        // Constructor rules
+        "no-useless-constructor": "off",
+        "@typescript-eslint/no-useless-constructor": ["error"],
+
+        // NOTE: This check gets triggered by private constructors. We should re-enable in the future.
+        "no-empty-function": "off",
+
+        // NOTE: This check gets triggered when file has a single named export.
+        "import/prefer-default-export": "off",
+
+        // React rules
+        "react/sort-comp": [
+            "error",
+            {
+                "order": [
+                    "type-annotations",
+                    "static-methods",
+                    "lifecycle",
+                    "everything-else",
+                    "render"
+                ]
+            }
+        ],
+        "react/jsx-no-bind": "off",
+        "react/jsx-filename-extension": [
+            "error",
+            {
+                "extensions": [
+                    ".js",
+                    ".tsx"
+                ]
+            }
+        ],
+        "react/jsx-one-expression-per-line": "off",
+        "react/prefer-stateless-function": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react/jsx-wrap-multilines": [
+            "error",
+            {
+                "declaration": "parens",
+                "assignment": "parens",
+                "return": "parens",
+                "arrow": "parens",
+                "condition": "ignore",
+                "logical": "ignore",
+                "prop": "ignore"
+            }
+        ],
+        "react/require-default-props": "off",
+        "react/function-component-definition": [2, {
+            "namedComponents": "arrow-function",
+            "unnamedComponents":  "arrow-function"
+        }],
+        "react/no-unescaped-entities": "off",
+        "@typescript-eslint/no-use-before-define": "off",
+        "@typescript-eslint/no-unused-vars": "error"
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "import",
+        "promise",
+        "compat",
+        "react"
+    ]
+}
