@@ -5,13 +5,20 @@ import mockedData from 'mocks/data.json';
 
 interface Context {
   list: Data[],
+  isDrawerOpened: boolean;
   onFilterList: (query: string) => void;
+  toggleDrawer: () => void;
 }
 
-export const ListContext = createContext<Context>({} as Context);
+export const AppContext = createContext<Context>({} as Context);
 
-const ListProvider = ({ children }: { children: ReactElement }) => {
+const AppProvider = ({ children }: { children: ReactElement }) => {
   const [list, setList] = useState<Data[]>(mockedData);
+  const [isDrawerOpened, setIsDrawerOpened] = useState(false);
+
+  const toggleDrawer = useCallback(() => {
+    setIsDrawerOpened(!isDrawerOpened);
+  }, [isDrawerOpened]);
 
   const onFilterList = useCallback((query: string) => {
     const filteredItems = mockedData.filter((item => {
@@ -21,15 +28,20 @@ const ListProvider = ({ children }: { children: ReactElement }) => {
     setList(filteredItems);
   }, [mockedData]);
 
-  const value = useMemo(() => {
-    return { list, onFilterList };
-  }, [list, onFilterList]);
+  const value = useMemo<Context>(() => {
+    return {
+      list,
+      isDrawerOpened,
+      toggleDrawer,
+      onFilterList
+    };
+  }, [list, isDrawerOpened, onFilterList]);
 
   return (
-    <ListContext.Provider value={value}>
+    <AppContext.Provider value={value}>
       {children}
-    </ListContext.Provider>
+    </AppContext.Provider>
   );
 };
 
-export default ListProvider;
+export default AppProvider;

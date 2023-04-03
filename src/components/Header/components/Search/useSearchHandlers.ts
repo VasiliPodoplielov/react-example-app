@@ -1,9 +1,9 @@
 import React, { useCallback, useContext, useState } from 'react';
 
-import { ListContext } from 'store/context';
+import { AppContext } from 'store/context';
 
 const useSearchHandlers = () => {
-  const { onFilterList } = useContext(ListContext);
+  const { onFilterList } = useContext(AppContext);
   const [value, setValue] = useState('');
 
   const handleChangeSearch = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {

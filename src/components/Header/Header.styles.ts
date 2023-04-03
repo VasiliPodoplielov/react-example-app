@@ -1,8 +1,10 @@
+import { AppBar } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { DRAWER_WIDTH } from 'components/Table';
 
-export const AppWrapper = styled('div')<{ open?: boolean }>(({ theme, open }) => ({
-  padding: theme.spacing(10, 2, 2, 2),
+import { DRAWER_WIDTH } from '../Table';
+
+export const StyledAppBar = styled(AppBar)<{ open?: boolean }>(({ theme, open }) => ({
+  lexGrow: 1,
   boxSizing: 'border-box',
   transition: theme.transitions.create(['margin', 'width'], {
     easing: theme.transitions.easing.sharp,

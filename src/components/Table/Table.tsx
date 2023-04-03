@@ -12,13 +12,13 @@ import {
 
 import { Data } from 'api';
 
-import { ListContext } from 'store/context';
+import { AppContext } from 'store/context';
 
 import { DEFAULT_ROWS_PER_PAGE, HEAD_CELLS, ROWS_PER_PAGE_OPTIONS } from './constants';
 import TableToolbar from './TableToolbar';
 
 const Table = () => {
-  const { list } = useContext(ListContext);
+  const { list } = useContext(AppContext);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(DEFAULT_ROWS_PER_PAGE);
   const [rowsToShow, setRowsToShow] = useState<Data[] | null>(null);
@@ -59,7 +59,7 @@ const Table = () => {
     <Paper>
       {list.length ? (
         <>
-          <TableToolbar numSelected={0} />
+          <TableToolbar />
           <TableContainer>
             <MUITable
               sx={{ minWidth: 750 }}

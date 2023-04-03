@@ -1,26 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import { AppBar, Box, Toolbar, Typography } from '@mui/material';
+import { Toolbar, Typography } from '@mui/material';
+
+import { AppContext } from 'store/context';
 
 import { Search } from './components/Search';
+import { StyledAppBar } from './Header.styles';
 
 const Header = () => {
+  const { isDrawerOpened } = useContext(AppContext);
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position='fixed'>
-        <Toolbar>
-          <Typography
-            variant='h6'
-            noWrap
-            component='div'
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
-            Campaigns
-          </Typography>
-          <Search />
-        </Toolbar>
-      </AppBar>
-    </Box>
+    <StyledAppBar position='fixed' open={isDrawerOpened}>
+      <Toolbar sx={{ justifyContent: 'space-between' }}>
+        <Typography
+          variant='h6'
+        >
+          Campaigns
+        </Typography>
+        <Search />
+      </Toolbar>
+    </StyledAppBar>
   );
 };
 
