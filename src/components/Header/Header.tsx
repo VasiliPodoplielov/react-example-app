@@ -1,14 +1,13 @@
 import React from 'react';
 
-import SearchIcon from '@mui/icons-material/Search';
 import { AppBar, Box, Toolbar, Typography } from '@mui/material';
 
-import { SearchIconWrapper, StyledInputBase, StyledSearch } from './Header.styles';
+import { Search } from './components/Search';
 
 const Header = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position='static'>
+      <AppBar position='fixed'>
         <Toolbar>
           <Typography
             variant='h6'
@@ -18,15 +17,7 @@ const Header = () => {
           >
             Campaigns
           </Typography>
-          <StyledSearch>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder='Search…'
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </StyledSearch>
+          <Search />
         </Toolbar>
       </AppBar>
     </Box>
