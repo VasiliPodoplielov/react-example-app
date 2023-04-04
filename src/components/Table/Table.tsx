@@ -12,7 +12,7 @@ import {
 
 import { Data } from 'api';
 
-import { AppContext } from 'store/context';
+import { AppContext } from 'store';
 
 import { DEFAULT_ROWS_PER_PAGE, HEAD_CELLS, ROWS_PER_PAGE_OPTIONS } from './constants';
 import TableToolbar from './TableToolbar';

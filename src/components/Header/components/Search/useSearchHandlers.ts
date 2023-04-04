@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useState } from 'react';
 
-import { AppContext } from 'store/context';
+import { AppContext } from 'store';
 
 const useSearchHandlers = () => {
   const { onFilterList } = useContext(AppContext);

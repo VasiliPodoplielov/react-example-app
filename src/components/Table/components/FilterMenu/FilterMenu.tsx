@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Menu, MenuItem, Tooltip } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
+import { AppContext } from 'store';
 
 const FilterMenu = () => {
+  const  { handleClearFields } = useContext(AppContext);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -13,6 +15,11 @@ const FilterMenu = () => {
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const onClearFields = () => {
+    handleClearFields();
+    handleClose();
   };
 
   return (
@@ -36,7 +43,7 @@ const FilterMenu = () => {
           'aria-labelledby': 'basic-button'
         }}
       >
-        <MenuItem onClick={handleClose}>Clear All Filters</MenuItem>
+        <MenuItem onClick={onClearFields}>Clear All Filters</MenuItem>
       </Menu>
     </>
   );

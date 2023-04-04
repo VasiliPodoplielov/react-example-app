@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import { Toolbar, Typography } from '@mui/material';
 
-import { AppContext } from 'store/context';
+import { AppContext } from 'store';
 
 import { Search } from './components/Search';
 import { StyledAppBar } from './Header.styles';

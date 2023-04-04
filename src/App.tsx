@@ -4,7 +4,7 @@ import './App.css';
 import { Header } from 'components/Header';
 import { Table } from 'components/Table';
 
-import { AppContext } from 'store/context';
+import { AppContext } from 'store';
 
 import { AppWrapper } from './App.styles';
 
